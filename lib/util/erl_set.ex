@@ -1,4 +1,4 @@
-defmodule Util.ErlSet do
+defmodule Util.Erl.Set do
   def new do
     :sets.new()
   end

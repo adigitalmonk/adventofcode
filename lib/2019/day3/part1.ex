@@ -56,11 +56,11 @@ defmodule AoC2019.Day3.Part1 do
       {x, y, manhatten(pos)}
     end)
     |> Enum.sort(fn {_, _, distA}, {_, _, distB} -> distA <= distB end)
-    |> hd()
   end
 
   def run(filename) do
     File.read!(filename)
     |> parse_instructions()
+    |> hd()
   end
 end

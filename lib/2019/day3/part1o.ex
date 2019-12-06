@@ -1,32 +1,32 @@
-defmodule AoC2019.Day3.Part1.ErlSet do
-  alias Util.Erl.Set, as: ErlSet
+defmodule AoC2019.Day3.Part1.OrdSet do
+  alias Util.Erl.OrdSet, as: OrdSet
 
   def handle_instruction({"U", 0}, {x, y}, set), do: {{x, y}, set}
 
   def handle_instruction({"U", distance}, {x, y}, set) do
     new_point = {x, y + 1}
-    handle_instruction({"U", distance - 1}, new_point, ErlSet.add(set, new_point))
+    handle_instruction({"U", distance - 1}, new_point, OrdSet.add(set, new_point))
   end
 
   def handle_instruction({"D", 0}, {x, y}, set), do: {{x, y}, set}
 
   def handle_instruction({"D", distance}, {x, y}, set) do
     new_point = {x, y - 1}
-    handle_instruction({"D", distance - 1}, new_point, ErlSet.add(set, new_point))
+    handle_instruction({"D", distance - 1}, new_point, OrdSet.add(set, new_point))
   end
 
   def handle_instruction({"R", 0}, {x, y}, set), do: {{x, y}, set}
 
   def handle_instruction({"R", distance}, {x, y}, set) do
     new_point = {x + 1, y}
-    handle_instruction({"R", distance - 1}, new_point, ErlSet.add(set, new_point))
+    handle_instruction({"R", distance - 1}, new_point, OrdSet.add(set, new_point))
   end
 
   def handle_instruction({"L", 0}, {x, y}, set), do: {{x, y}, set}
 
   def handle_instruction({"L", distance}, {x, y}, set) do
     new_point = {x - 1, y}
-    handle_instruction({"L", distance - 1}, new_point, ErlSet.add(set, new_point))
+    handle_instruction({"L", distance - 1}, new_point, OrdSet.add(set, new_point))
   end
 
   def manhatten({x, y}) do
@@ -46,15 +46,15 @@ defmodule AoC2019.Day3.Part1.ErlSet do
       |> Enum.map(fn instruction_set ->
         {{_, _}, set} =
           instruction_set
-          |> Enum.reduce({{0, 0}, ErlSet.new()}, fn instruction, {{x, y}, set} ->
+          |> Enum.reduce({{0, 0}, OrdSet.new()}, fn instruction, {{x, y}, set} ->
             handle_instruction(instruction, {x, y}, set)
           end)
 
         set
       end)
 
-    ErlSet.intersect(setA, setB)
-    |> ErlSet.to_list()
+    OrdSet.intersect(setA, setB)
+    |> OrdSet.to_list()
     |> Enum.map(fn {x, y} = pos ->
       {x, y, manhatten(pos)}
     end)
