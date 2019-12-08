@@ -11,7 +11,7 @@ defmodule AdventOfCode do
       [AoC2019.Day3.Part1.ErlSet, :run, ["data/day3.txt"]],
       [AoC2019.Day3.Part2.Slow, :run, ["data/day3.txt"]],
       [AoC2019.Day4.Part1, :run, ["data/day4.txt"]],
-      [AoC2019.Day4.Part2, :run, ["data/day4.txt"]],
+      [AoC2019.Day4.Part2, :run, ["data/day4.txt"]]
     ]
     |> Enum.map(fn [module, function, args] ->
       {exec_time, result} = :timer.tc(module, function, args)
