@@ -9,12 +9,13 @@ defmodule AoC2019.Day5.Part1 do
         data_set,
         offset
       ) do
+
     param1 = get_data(modeA, data_set, offset + 1)
     param2 = get_data(modeB, data_set, offset + 2)
-    param3 = :array.get(offset + 3, data_set)
+    target = :array.get(offset + 3, data_set)
 
     data_set
-    |> update_data(param3, param1 + param2)
+    |> update_data(target, param1 + param2)
     |> consume_instructions(offset + 4)
   end
 
@@ -25,10 +26,10 @@ defmodule AoC2019.Day5.Part1 do
       ) do
     param1 = get_data(modeA, data_set, offset + 1)
     param2 = get_data(modeB, data_set, offset + 2)
-    param3 = :array.get(offset + 3, data_set)
+    target = :array.get(offset + 3, data_set)
 
     data_set
-    |> update_data(param3, param1 * param2)
+    |> update_data(target, param1 * param2)
     |> consume_instructions(offset + 4)
   end
 
@@ -37,33 +38,33 @@ defmodule AoC2019.Day5.Part1 do
         data_set,
         offset
       ) do
+
     param1 = 1
     # IO.gets("Input: ")
     # |> String.trim()
     # |> String.to_integer()
 
-    param2 = :array.get(offset + 1, data_set)
+    target = :array.get(offset + 1, data_set)
 
     data_set
-    |> update_data(param2, param1)
+    |> update_data(target, param1)
     |> consume_instructions(offset + 2)
   end
 
   def consume_instruction(
-        <<_::binary-size(1), _::binary-size(1), _::binary-size(1), "04"::binary>>,
+        <<_::binary-size(1), _::binary-size(1), modeA::binary-size(1), "04"::binary>>,
         data_set,
         offset
       ) do
-    param1 = :array.get(offset + 1, data_set)
 
-    :array.get(param1, data_set)
+    get_data(modeA, data_set, offset + 1)
     |> IO.puts()
 
     consume_instructions(data_set, offset + 2)
   end
 
   def consume_instruction(
-        <<_::binary-size(1), _::binary-size(1), _::binary-size(1), "99"::binary>>,
+        <<_::binary-size(3), "99"::binary>>,
         data_set,
         _
       ) do

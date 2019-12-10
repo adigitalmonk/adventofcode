@@ -11,10 +11,10 @@ defmodule AoC2019.Day5.Part2 do
       ) do
     param1 = get_data(modeA, data_set, offset + 1)
     param2 = get_data(modeB, data_set, offset + 2)
-    param3 = :array.get(offset + 3, data_set)
+    target = :array.get(offset + 3, data_set)
 
     data_set
-    |> update_data(param3, param1 + param2)
+    |> update_data(target, param1 + param2)
     |> consume_instructions(offset + 4)
   end
 
@@ -25,10 +25,10 @@ defmodule AoC2019.Day5.Part2 do
       ) do
     param1 = get_data(modeA, data_set, offset + 1)
     param2 = get_data(modeB, data_set, offset + 2)
-    param3 = :array.get(offset + 3, data_set)
+    target = :array.get(offset + 3, data_set)
 
     data_set
-    |> update_data(param3, param1 * param2)
+    |> update_data(target, param1 * param2)
     |> consume_instructions(offset + 4)
   end
 
@@ -37,26 +37,25 @@ defmodule AoC2019.Day5.Part2 do
         data_set,
         offset
       ) do
-    param1 =
-      IO.gets("Input: ")
-      |> String.trim()
-      |> String.to_integer()
+    param1 = 5
+      # IO.gets("Input: ")
+      # |> String.trim()
+      # |> String.to_integer()
 
-    param2 = :array.get(offset + 1, data_set)
+    target = :array.get(offset + 1, data_set)
 
     data_set
-    |> update_data(param2, param1)
+    |> update_data(target, param1)
     |> consume_instructions(offset + 2)
   end
 
   def consume_instruction(
-        <<_::binary-size(1), _::binary-size(1), _::binary-size(1), "04"::binary>>,
+        <<_::binary-size(1), _::binary-size(1), modeA::binary-size(1), "04"::binary>>,
         data_set,
         offset
       ) do
-    param1 = :array.get(offset + 1, data_set)
 
-    :array.get(param1, data_set)
+    get_data(modeA, data_set, offset + 1)
     |> IO.puts()
 
     consume_instructions(data_set, offset + 2)
@@ -79,7 +78,7 @@ defmodule AoC2019.Day5.Part2 do
       |> consume_instructions(param2)
     else
       data_set
-      |> consume_instructions(offset + 2)
+      |> consume_instructions(offset + 3)
     end
   end
 
@@ -100,12 +99,12 @@ defmodule AoC2019.Day5.Part2 do
       |> consume_instructions(param2)
     else
       data_set
-      |> consume_instructions(offset + 2)
+      |> consume_instructions(offset + 3)
     end
   end
 
   def consume_instruction(
-        <<modeC::binary-size(1), modeB::binary-size(1), modeA::binary-size(1), "07"::binary>>,
+        <<_::binary-size(1), modeB::binary-size(1), modeA::binary-size(1), "07"::binary>>,
         data_set,
         offset
       ) do
@@ -115,21 +114,21 @@ defmodule AoC2019.Day5.Part2 do
 
     param1 = get_data(modeA, data_set, offset + 1)
     param2 = get_data(modeB, data_set, offset + 2)
-    param3 = get_data(modeC, data_set, offset + 3)
+    target = :array.get(offset + 3, data_set)
 
     if param1 < param2 do
       data_set
-      |> update_data(param3, 1)
-      |> consume_instructions(offset + 2)
+      |> update_data(target, 1)
+      |> consume_instructions(offset + 4)
     else
       data_set
-      |> update_data(param3, 0)
-      |> consume_instructions(offset + 2)
+      |> update_data(target, 0)
+      |> consume_instructions(offset + 4)
     end
   end
 
   def consume_instruction(
-        <<modeC::binary-size(1), modeB::binary-size(1), modeA::binary-size(1), "08"::binary>>,
+        <<_::binary-size(1), modeB::binary-size(1), modeA::binary-size(1), "08"::binary>>,
         data_set,
         offset
       ) do
@@ -139,21 +138,21 @@ defmodule AoC2019.Day5.Part2 do
 
     param1 = get_data(modeA, data_set, offset + 1)
     param2 = get_data(modeB, data_set, offset + 2)
-    param3 = get_data(modeC, data_set, offset + 3)
+    target = :array.get(offset + 3, data_set)
 
     if param1 == param2 do
       data_set
-      |> update_data(param3, 1)
-      |> consume_instructions(offset + 2)
+      |> update_data(target, 1)
+      |> consume_instructions(offset + 4)
     else
       data_set
-      |> update_data(param3, 0)
-      |> consume_instructions(offset + 2)
+      |> update_data(target, 0)
+      |> consume_instructions(offset + 4)
     end
   end
 
   def consume_instruction(
-        <<_::binary-size(1), _::binary-size(1), _::binary-size(1), "99"::binary>>,
+        <<_::binary-size(3), "99"::binary>>,
         data_set,
         _
       ) do

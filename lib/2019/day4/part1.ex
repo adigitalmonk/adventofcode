@@ -40,7 +40,6 @@ defmodule AoC2019.Day4.Part1 do
     filename
     |> File.read!()
     |> String.split("-")
-    |> IO.inspect()
     |> search()
   end
 end

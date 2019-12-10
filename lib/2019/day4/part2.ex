@@ -12,11 +12,11 @@ defmodule AoC2019.Day4.Part2 do
         <<a::binary-size(1), b::binary-size(1), c::binary-size(1), d::binary-size(1),
           e::binary-size(1), f::binary-size(1)>> = input
       ) do
-    cond do
-      a == b || b == c || c == d || d == e || e == f ->
+    case a == b || b == c || c == d || d == e || e == f do
+      true ->
         count_letters(input, Map.new())
 
-      true ->
+      _ ->
         false
     end
   end
