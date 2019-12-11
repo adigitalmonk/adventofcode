@@ -6,10 +6,11 @@ defmodule AoC2019.Day6.Part2 do
 
     graph
     |> Graph.add_edge(orbiter, orbitee)
+    |> Graph.add_edge(orbitee, orbiter)
     |> build_graph(rest)
   end
 
-  def build_graph(data_points), do: build_graph(Graph.new(type: :undirected), data_points)
+  def build_graph(data_points), do: build_graph(Graph.new(), data_points)
 
   def run(filename) do
     filename
@@ -17,5 +18,8 @@ defmodule AoC2019.Day6.Part2 do
     |> String.split()
     |> build_graph()
     |> Graph.dijkstra("YOU", "SAN")
+    |> Enum.count()
+    # Remove "YOU" and "SAN", remove one more since we want the points between
+    |> Kernel.-(3)
   end
 end
