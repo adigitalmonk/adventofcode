@@ -38,9 +38,9 @@ defmodule AoC2019.Day5.Part2 do
         offset
       ) do
     param1 = 5
-      # IO.gets("Input: ")
-      # |> String.trim()
-      # |> String.to_integer()
+    # IO.gets("Input: ")
+    # |> String.trim()
+    # |> String.to_integer()
 
     target = :array.get(offset + 1, data_set)
 
@@ -54,7 +54,6 @@ defmodule AoC2019.Day5.Part2 do
         data_set,
         offset
       ) do
-
     get_data(modeA, data_set, offset + 1)
     |> IO.puts()
 
