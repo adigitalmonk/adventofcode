@@ -11,8 +11,7 @@ defmodule AoC2019.Day7.Part1 do
 
     Permutations.perms([0, 1, 2, 3, 4])
     |> Enum.map(fn [a, b, c, d, e] = phase_seq ->
-      
-        # Amp A
+      # Amp A
       output = Intcode.run(data_set, [a, 0])
       # Amp B
       output = Intcode.run(data_set, [b, output])
