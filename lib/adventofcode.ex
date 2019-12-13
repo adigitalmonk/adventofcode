@@ -16,7 +16,8 @@ defmodule AdventOfCode do
       [AoC2019.Day5.Part2, :run, ["data/day5.txt"]],
       [AoC2019.Day6.Part1, :run, ["data/day6.txt"]],
       [AoC2019.Day6.Part2, :run, ["data/day6.txt"]],
-      [AoC2019.Day7.Part1, :run, ["data/day7.txt"]]
+      [AoC2019.Day7.Part1, :run, ["data/day7.txt"]],
+      [AoC2019.Day7.Part2, :run, ["data/day7.txt"]]
     ]
     |> Enum.each(fn [module, function, args] ->
       {exec_time, result} = :timer.tc(module, function, args)
