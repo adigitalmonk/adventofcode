@@ -1,21 +1,11 @@
-# Adventofcode
+# Advent of Code
 
-**TODO: Add description**
+Code repository for Elixir solutions to the problems found on [Advent of Code](https://adventofcode.com/).
 
-## Installation
+## Running
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `adventofcode` to your list of dependencies in `mix.exs`:
+Problem input can be found in `data/<year>/<day>.txt`.
 
-```elixir
-def deps do
-  [
-    {:adventofcode, "~> 0.1.0"}
-  ]
-end
-```
+Each day is added to `AdventOfCode.run_<year>`.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/adventofcode](https://hexdocs.pm/adventofcode).
-
+Tests should exist once the problem is found to make sure that refactoring the problem still gives the right solution.
