@@ -38,7 +38,11 @@ defmodule AdventOfCode do
   def run_2020 do
     [
       [AoC2020.Day1.Part1, :run, ["data/2020/day1.txt"]],
-      [AoC2020.Day1.Part2, :run, ["data/2020/day1.txt"]]
+      [AoC2020.Day1.Part2, :run, ["data/2020/day1.txt"]],
+      [AoC2020.Day2.Part1, :run, ["data/2020/day2.txt"]],
+      [AoC2020.Day2.Part2, :run, ["data/2020/day2.txt"]],
+      [AoC2020.Day3.Part1, :run, ["data/2020/day3.txt"]],
+      [AoC2020.Day3.Part2, :run, ["data/2020/day3.txt"]]
     ]
     |> run()
   end
