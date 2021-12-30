@@ -2,7 +2,8 @@ defmodule AoC2021.Day3.Part1 do
   def run(filename) do
     filename
     |> load()
-    |> process()
+
+    # |> process()
   end
 
   def load(filename) do
@@ -15,7 +16,15 @@ defmodule AoC2021.Day3.Part1 do
     end)
   end
 
-  def process(_items) do
-    # TODO
-  end
+  # def process(items) do
+  #   items
+  #   |> Enum.reduce(%{}, fn item, counts ->
+  #     String.split()
+  #     |> Enum.with_index(&{&1, &1})
+  #     |> Enum.reduce(counts, fn {item, index}, acc ->
+  #       nil
+  #       # Map.update(counts,)
+  #     end)
+  #   end)
+  # end
 end

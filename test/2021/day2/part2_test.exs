@@ -1,4 +1,4 @@
-defmodule AoC2021.Day2.Part1Test do
+defmodule AoC2021.Day2.Part2Test do
   use ExUnit.Case
 
   alias AoC2021.Day2.Part2
