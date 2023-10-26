@@ -1,4 +1,6 @@
 defmodule AoC2019.Day3.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def handle_instruction({"U", 0}, {x, y}, set), do: {{x, y}, set}
 
   def handle_instruction({"U", distance}, {x, y}, set) do
@@ -59,7 +61,9 @@ defmodule AoC2019.Day3.Part1 do
   end
 
   def run(filename) do
-    File.read!(filename)
+    filename
+    |> data()
+    |> Enum.into("")
     |> parse_instructions()
     |> hd()
   end

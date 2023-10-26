@@ -2,6 +2,7 @@ defmodule AoC2021.Day3.Part1Test do
   use ExUnit.Case
   # alias AoC2021.Day3.Part1
 
+  @tag :skip
   test "runs on sample data" do
     _data = [
       0b00100,

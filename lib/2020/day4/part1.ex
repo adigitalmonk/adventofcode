@@ -1,7 +1,10 @@
 defmodule AoC2020.Day4.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def run(filename) do
     filename
-    |> File.read!()
+    |> data()
+    |> Enum.into("")
     |> String.split("\n")
     |> batch_load()
     |> Enum.count(&validate_password/1)

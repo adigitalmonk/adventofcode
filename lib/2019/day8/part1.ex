@@ -1,4 +1,6 @@
 defmodule AoC2019.Day8.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def count_numbers(layers, target, sum \\ 0)
   def count_numbers([], _, sum), do: sum
 
@@ -37,7 +39,8 @@ defmodule AoC2019.Day8.Part1 do
 
   def run(filename) do
     filename
-    |> File.read!()
+    |> data()
+    |> Enum.into("")
     |> String.split("", trim: true)
     |> Enum.map(&String.to_integer/1)
     |> Enum.chunk_every(25)

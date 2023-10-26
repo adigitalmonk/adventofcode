@@ -1,6 +1,9 @@
 defmodule AoC2020.Day2.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   def run(filename) do
-    File.stream!(filename)
+    filename
+    |> data()
     |> Stream.map(&convert_line/1)
     |> Stream.filter(&validate_password/1)
     |> Enum.into([])

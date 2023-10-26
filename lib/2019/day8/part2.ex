@@ -1,4 +1,6 @@
 defmodule AoC2019.Day8.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   def compile_line([], [], new_line), do: Enum.reverse(new_line)
 
   def compile_line([2 | rest], [fhead | frest], new_line) do
@@ -27,7 +29,8 @@ defmodule AoC2019.Day8.Part2 do
 
   def run(filename) do
     filename
-    |> File.read!()
+    |> data()
+    |> Enum.into("")
     |> String.split("", trim: true)
     |> Enum.map(&String.to_integer/1)
     |> Enum.chunk_every(25)

@@ -1,4 +1,6 @@
 defmodule AoC2019.Day1.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   defp fuel_for(component) do
     component
     |> div(3)
@@ -32,7 +34,8 @@ defmodule AoC2019.Day1.Part2 do
   end
 
   def run(filename) do
-    File.stream!(filename)
+    filename
+    |> data()
     |> Enum.map(fn input ->
       input
       |> String.trim()

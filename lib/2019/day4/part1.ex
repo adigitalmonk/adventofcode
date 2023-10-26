@@ -1,4 +1,6 @@
 defmodule AoC2019.Day4.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def check_duplicate(
         <<a::binary-size(1), b::binary-size(1), c::binary-size(1), d::binary-size(1),
           e::binary-size(1), f::binary-size(1)>>
@@ -38,7 +40,8 @@ defmodule AoC2019.Day4.Part1 do
 
   def run(filename) do
     filename
-    |> File.read!()
+    |> data()
+    |> Enum.into("")
     |> String.split("-")
     |> search()
   end

@@ -1,6 +1,9 @@
 defmodule AoC2019.Day1.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def run(filename) do
-    File.stream!(filename)
+    filename
+    |> data()
     |> Enum.map(&String.trim/1)
     |> Enum.reduce(0, fn x, acc ->
       y =

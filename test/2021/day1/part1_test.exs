@@ -8,6 +8,6 @@ defmodule AoC2021.Day1.Part1Test do
   end
 
   test "runs the sample data correctly" do
-    assert Part1.run("data/2021/day1.txt") == 1301
+    assert Part1.run("2021/day1.txt") == 1301
   end
 end

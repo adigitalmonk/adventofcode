@@ -1,4 +1,6 @@
 defmodule AoC2019.Day5.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   def get_data("1", data_set, location), do: :array.get(location, data_set)
 
   def get_data(_, data_set, location),
@@ -55,8 +57,6 @@ defmodule AoC2019.Day5.Part2 do
         offset
       ) do
     get_data(modeA, data_set, offset + 1)
-    |> IO.puts()
-
     consume_instructions(data_set, offset + 2)
   end
 
@@ -173,7 +173,9 @@ defmodule AoC2019.Day5.Part2 do
   def update_data(arr, index, value), do: :array.set(index, value, arr)
 
   def run(filename) do
-    File.read!(filename)
+    filename
+    |> data()
+    |> Enum.into("")
     |> String.split(",")
     |> Enum.map(&String.to_integer/1)
     |> :array.from_list()

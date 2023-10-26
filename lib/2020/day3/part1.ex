@@ -1,7 +1,9 @@
 defmodule AoC2020.Day3.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def run(filename) do
     filename
-    |> File.stream!()
+    |> data()
     |> Enum.map(fn line ->
       line
       |> String.trim()

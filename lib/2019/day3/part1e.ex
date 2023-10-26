@@ -1,4 +1,5 @@
 defmodule AoC2019.Day3.Part1.ErlSet do
+  import AdventOfCode, only: [data: 1]
   alias Util.Erl.Set, as: ErlSet
 
   def handle_instruction({"U", 0}, {x, y}, set), do: {{x, y}, set}
@@ -63,7 +64,9 @@ defmodule AoC2019.Day3.Part1.ErlSet do
   end
 
   def run(filename) do
-    File.read!(filename)
+    filename
+    |> data()
+    |> Enum.into("")
     |> parse_instructions()
   end
 end

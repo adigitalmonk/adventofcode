@@ -1,4 +1,6 @@
 defmodule AoC2019.Day2.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   def consume_instructions(data_set, offset \\ 0) do
     [a, b, c, d] = [
       Enum.at(data_set, offset),
@@ -46,7 +48,9 @@ defmodule AoC2019.Day2.Part2 do
 
   def run(filename) do
     instructions =
-      File.read!(filename)
+      filename
+      |> data()
+      |> Enum.into("")
       |> String.split(",")
       |> Enum.map(&String.to_integer/1)
 

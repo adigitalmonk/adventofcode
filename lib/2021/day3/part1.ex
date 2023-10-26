@@ -1,4 +1,6 @@
 defmodule AoC2021.Day3.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def run(filename) do
     filename
     |> load()
@@ -8,7 +10,7 @@ defmodule AoC2021.Day3.Part1 do
 
   def load(filename) do
     filename
-    |> File.stream!()
+    |> data()
     |> Enum.map(fn line ->
       line
       |> String.trim()

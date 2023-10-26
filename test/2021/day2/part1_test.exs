@@ -17,6 +17,6 @@ defmodule AoC2021.Day2.Part1Test do
   end
 
   test "operates on the full data set correctly" do
-    assert Part1.run("data/2021/day2.txt") == 1_507_611
+    assert Part1.run("2021/day2.txt") == 1_507_611
   end
 end

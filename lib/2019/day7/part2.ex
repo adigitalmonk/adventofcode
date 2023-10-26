@@ -1,4 +1,6 @@
 defmodule AoC2019.Day7.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   alias AoC2019.Day7.Part2.Intcode
   alias AoC2019.Day7.Part2.State
   alias AoC2019.Day7.Part2.AmpState
@@ -104,7 +106,8 @@ defmodule AoC2019.Day7.Part2 do
   def run(filename) do
     data_set =
       filename
-      |> File.read!()
+      |> data()
+      |> Enum.into("")
       |> String.split(",")
       |> Enum.map(&String.to_integer/1)
       |> :array.from_list()

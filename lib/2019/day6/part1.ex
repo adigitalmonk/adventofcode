@@ -1,4 +1,6 @@
 defmodule AoC2019.Day6.Part1 do
+  import AdventOfCode, only: [data: 1]
+
   def build_graph(graph, []), do: graph
 
   def build_graph(graph, [orbit | rest]) do
@@ -24,7 +26,8 @@ defmodule AoC2019.Day6.Part1 do
   def run(filename) do
     graph =
       filename
-      |> File.read!()
+      |> data()
+      |> Enum.into("")
       |> String.split()
       |> build_graph()
 

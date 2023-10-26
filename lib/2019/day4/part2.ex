@@ -1,4 +1,6 @@
 defmodule AoC2019.Day4.Part2 do
+  import AdventOfCode, only: [data: 1]
+
   def count_letters(<<>>, map) do
     map
     |> Map.values()
@@ -53,7 +55,8 @@ defmodule AoC2019.Day4.Part2 do
 
   def run(filename) do
     filename
-    |> File.read!()
+    |> data()
+    |> Enum.into("")
     |> String.split("-")
     |> search()
   end
